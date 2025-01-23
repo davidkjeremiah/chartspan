@@ -15,15 +15,16 @@ class ChartSpan:
         self.height = height
         self.text_color = text_color
 
-    def render_inline(self, spec: dict, text_color: str = None) -> None:
+    def render_inline(self, spec: dict, text_color: str = None, background_color: str = None) -> None:
         """
         Render a Vega-Lite JSON spec inline using Vega-Embed.
 
         Args:
             spec (dict): Vega-Lite specification dictionary
             text_color (str, optional): Override default text color
+            background_color (str, optional): Set background color for the chart
         """
-        # Prioritize given over default
+        # Use the provided text_color or fall back to the instance's text_color
         color = text_color or self.text_color
 
         # Modify the spec for size
@@ -35,6 +36,11 @@ class ChartSpan:
         spec["config"].setdefault("view", {})
         spec["config"]["view"]["continuousWidth"] = self.width
         spec["config"]["view"]["continuousHeight"] = self.height
+        
+        # Background
+        if background_color:
+            spec["config"]["background"] = background_color
+            spec["config"]["view"]["fill"] = background_color
         
         # Font family for all text elements
         default_font = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif'

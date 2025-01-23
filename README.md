@@ -1,12 +1,14 @@
 # ChartSpan
 
-ChartSpan is a Python library designed for rendering Vega-Lite JSON specifications directly within Jupyter Notebook or Google Colab. It simplifies the visualization of interactive charts and supports customization for chart dimensions.
+ChartSpan is a Python library designed for rendering Vega-Lite JSON specifications directly within Google Colab. It simplifies the visualization of interactive charts and supports customization for chart dimensions, text color, and background color.
 
 ## Features
 
-- **Inline Rendering**: Renders Vega-Lite JSON specifications directly within Jupyter/Colab notebooks.
+- **Inline Rendering**: Renders Vega-Lite JSON specifications directly within Google Colab.
 - **Interactive Charts**: Maintains full Vega-Lite interactivity (e.g., zoom, pan, tooltips).
 - **Custom Dimensions**: Easily adjust chart width and height for different use cases.
+- **Text Color Customization**: Allows specifying custom colors for text elements.
+- **Background Color Customization**: Supports setting a custom background color for charts.
 - **Lightweight and Easy-to-Use**: Minimal setup and dependencies.
 
 ## Installation
@@ -45,7 +47,28 @@ chart = ChartSpan(width=1000, height=800)
 chart.render_inline(spec)
 ```
 
-This modifies the chart's width and height, ensuring it fits your specific needs.
+You can also customize the text color for labels, titles, legends, and axes:
+
+```python
+chart = ChartSpan(width=800, height=600, text_color="blue")
+chart.render_inline(spec)
+```
+
+Alternatively, you can override the default text color for a specific chart:
+
+```python
+chart = ChartSpan(width=800, height=600, text_color="black")
+chart.render_inline(spec, text_color="red")
+```
+
+You can also customize the background color of the chart:
+
+```python
+chart = ChartSpan(width=800, height=600, text_color="black")
+chart.render_inline(spec, background_color="lightgray")
+```
+
+This modifies the chart's width, height, text color, and background color, ensuring it fits your specific needs and visual style.
 
 ## Example
 
@@ -77,11 +100,11 @@ import json
 with open("example.json", "r") as f:
     spec = json.load(f)
 
-chart = ChartSpan(width=800, height=600)
-chart.render_inline(spec)
+chart = ChartSpan(width=800, height=600, text_color="#dcdfe1")
+chart.render_inline(spec, background_color="#353535")
 ```
 
-This will display an interactive scatter plot in your Jupyter Notebook or Colab environment.
+This will display an interactive scatter plot in your Google Colab environment, with labels and titles rendered in green and a light blue background.
 
 ## Dependencies
 
