@@ -1,6 +1,6 @@
 Metadata-Version: 2.2
 Name: chartspan
-Version: 0.1.1
+Version: 0.1.2
 Summary: A lightweight Python library for rendering Vega-Lite JSON charts in Jupyter/Colab.
 Author-email: David Jeremiah <flasconnect@gmail.com>
 Project-URL: Homepage, https://github.com/davidkjeremiah/chartspan

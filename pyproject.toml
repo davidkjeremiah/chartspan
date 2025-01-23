@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "chartspan"
-version = "0.1.1"
+version = "0.1.2"
 description = "A lightweight Python library for rendering Vega-Lite JSON charts in Jupyter/Colab."
 readme = "README.md"
 authors = [
